@@ -6,11 +6,16 @@
     "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:main": "cross-env PAGE=MAIN vue-cli-service build",
+    "build:engine": "cross-env PAGE=ENGINE vue-cli-service build",
+    "build:editor": "cross-env PAGE=EDITOR vue-cli-service build"
   },
   "dependencies": {
+    "ant-design-vue": "^1.7.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.22.3",
     "vue-router": "^3.4.9"
   },
   "devDependencies": {
@@ -20,6 +25,10 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.3.2",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

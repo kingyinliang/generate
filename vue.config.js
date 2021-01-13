@@ -10,17 +10,17 @@ let page;
 switch(process.env.PAGE) {
     case 'ENGINE':
         page = {
-            entry: 'src/engine-entry.js',
+            entry: 'src/core/engine.js',
             outputDir: engineOutputDir
         }
     break
-    case 'CORE_EDITOR':
+    case 'EDITOR':
         page = {
-            entry: 'src/components/core/index.js',
+            entry: 'src/core/editor.js',
             outputDir: coreEditorOutputDir
         }
     break
-    case 'EDITOR':
+    case 'MAIN':
     default:
         page = {
             entry: 'src/main.js',
