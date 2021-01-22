@@ -1,16 +1,6 @@
-/*
- * @Author: ly525
- * @Date: 2019-11-24 18:51:58
- * @LastEditors: ly525
- * @LastEditTime: 2020-10-13 01:29:21
- * @FilePath: /h5/src/locales/lang/zh-CN.js
- * @Github: https://github.com/ly525/luban-h5
- * @Description: Do not edit
- * @Copyright 2018 - 2020 luban-h5. All Rights Reserved
- */
 export default {
   app: {
-    title: '鲁班 H5'
+    title: '推广页 H5'
   },
   header: {
     chineseDocument: '中文文档',
@@ -61,8 +51,8 @@ export default {
     },
     centerPanel: {
       mode: {
-        edit: 'Edit',
-        preview: 'Preview'
+        edit: '编辑',
+        preview: '预览'
       },
       contextMenu: {
         copy: '复制',

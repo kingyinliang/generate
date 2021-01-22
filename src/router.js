@@ -5,16 +5,23 @@ import Home from '@/pages/work/index.vue'
 Vue.use(Router)
 
 export default new Router({
-    routes: [
+  routes: [
+    {
+      path: '/',
+      redirect: '/work/list',
+      component: Home,
+      children: [
         {
-            path:'/',
-            component: Home,
-            children: []
-        },
-        {
-            path: '/editor/:workId',
-            name: 'editor',
-            component: () => import('@/pages/Editor/Editor.vue')
-          }
-    ]
+          path: '/work/list',
+          name: 'work-list',
+          component: () => import('@/pages/work/list.vue')
+        }
+      ]
+    },
+    {
+      path: '/editor/:workId',
+      name: 'editor',
+      component: () => import('@/pages/Editor/Editor.vue')
+    }
+  ]
 })

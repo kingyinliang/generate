@@ -1,6 +1,6 @@
 export default {
   app: {
-    title: 'Luban H5'
+    title: 'Getting Out There H5'
   },
   header: {
     chineseDocument: '中文文档',
