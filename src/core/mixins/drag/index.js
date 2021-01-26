@@ -1,6 +1,9 @@
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
+  computed: {
+    ...mapState('editor', ['work'])
+  },
   methods:{
     ...mapActions('editor', ['addElement']),
     handleDragStartFromMixin(plugin, e){
@@ -21,13 +24,15 @@ export default {
         document.removeEventListener('mousemove', move, true)
         document.removeEventListener('mouseup', up, true)
         const position = document.querySelector('.canvas_wrapper_view').getBoundingClientRect()
-        this.addElement({
-          ...plugin,
-          dragStyle: {
-            left: event.clientX - e.layerX - position.left,
-            top: event.clientY - e.layerY - position.top
-          }
-        })
+        if(position.left<event.clientX&&event.clientX<position.left+375&&position.top<event.clientY&&event.clientY<position.top+this.work.height){
+          this.addElement({
+            ...plugin,
+            dragStyle: {
+              left: event.clientX - e.layerX - position.left,
+              top: event.clientY - e.layerY - position.top
+            }
+          })
+        }
       }
 
       document.addEventListener('mousemove', move, true)

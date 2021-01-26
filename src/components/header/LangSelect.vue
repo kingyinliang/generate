@@ -1,6 +1,6 @@
 <template>
   <el-dropdown>
-    <span role="lang" style="margin-right: 10px;">{{ langFlag }}</span>
+    <span class="lang" role="lang">{{ langFlag }}</span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item @click.native="SwitchLang('zh-CN')">
         <span role="img" aria-label="简体中文">🇨🇳</span> 简体中文
@@ -33,6 +33,9 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.lang{
+  cursor: pointer;
+  margin-right: 10px;
+}
 </style>

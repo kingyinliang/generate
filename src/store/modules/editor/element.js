@@ -1,29 +1,44 @@
-import { getVM } from '@/utils'
+import { getVM, elementClone } from '@/utils'
 import Element from 'core/models/element.js'
 
 export const actions = {
+  setEditingElement({ commit }, payload) {
+    commit('setEditingElement', payload)
+  },
+  setElementCommonStyle ({ commit }, payload) {
+    commit('setElementCommonStyle', payload)
+  },
   addElement({ commit }, payload) {
     commit('addElement', payload)
   },
-  copyElement({ commit }, payload) {
-    commit('copyElement', payload)
+  copyElement({ commit }) {
+    commit('copyElement')
   },
-  deleteElement({ commit }, payload) {
-    commit('deleteElement', payload)
+  deleteElement({ commit }) {
+    commit('deleteElement')
   },
 }
 
 export const mutations = {
+  setEditingElement (state, payload) {
+    state.editingElement = payload
+  },
+  setElementCommonStyle (state, payload) {
+    state.editingElement.commonStyle = {
+      ...state.editingElement.commonStyle,
+      ...payload
+    }
+  },
   addElement(state, payload){
     const vm = getVM(payload.name)
     vm.$options.dragStyle = payload.dragStyle
     console.log(vm.$options);
+    vm.$options.zindex = state.editingPage.elements.length
     const element = new Element(vm.$options)
     state.editingPage.elements.push(element)
   },
   copyElement(state){
-    const len = state.editingPage.elements.length
-    const element = state.editingElement.clone({ zindex: len + 1 })
+    const element = elementClone(state.editingElement, state.editingPage.elements.length)
     state.editingPage.elements.push(element)
   },
   deleteElement(state){
