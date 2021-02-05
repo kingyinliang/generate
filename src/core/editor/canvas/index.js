@@ -1,6 +1,6 @@
 import { mapState, mapActions } from 'vuex'
 import EditCanvas from './edit'
-import PreviewCanvas from './preview'
+import PreviewCanvas from 'core/preview'
 import DragLine from 'core/mixins/drag/drag_line.js'
 
 export default {
@@ -11,26 +11,35 @@ export default {
     }
   },
   computed: {
-    ...mapState('editor', ['work'])
+    ...mapState('editor', ['work']),
+    ...mapState('editor', {
+      elements: state => state.editingPage.elements,
+    })
   },
   methods: {
     ...mapActions('editor', [
-      'updateWork'
+      'updateWork',
+      'setEditingElement'
     ]),
+    radioChange(e){
+      if(!e){
+        this.setEditingElement()
+      }
+    }
   },
   render() {
     return (
       <el-container style="background: #f1f3f5">
         <el-main id='canvas_main' style='min-width: 400px;'>
           <div class='canvas_group'>
-            <el-radio-group vModel={this.isPreviewMode} size="mini">
+            <el-radio-group vModel={this.isPreviewMode} size="mini" onChange={this.radioChange}>
               <el-radio-button label={true}>{this.$t('editor.centerPanel.mode.edit')}</el-radio-button>
               <el-radio-button label={false}>{this.$t('editor.centerPanel.mode.preview')}</el-radio-button>
             </el-radio-group>
           </div>
           <div class='canvas_wrapper'>
             <div class='canvas_wrapper_view' style={{ height: `${this.work.height}px` }}>
-              { this.isPreviewMode ? <EditCanvas/> : <PreviewCanvas/> }
+              { this.isPreviewMode ? <EditCanvas/> : <PreviewCanvas elements={this.elements} height={this.work.height}/> }
             </div>
             <div class='canvas_wrapper_height' style={{top: `${this.work.height*1 + 50}px`}}>
               <div class="canvas_wrapper_height_drag">

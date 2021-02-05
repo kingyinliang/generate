@@ -3,14 +3,17 @@ import Header from '@/components/header/index'
 import HeaderMenu from '@/components/header/headerMenu'
 
 import '@/assets/scss/editor.scss'
+import 'animate.css'
 
 import EditorLeftPanel from 'core/editor/leftPanel'
 import EditorRightPanel from 'core/editor/rightPanel'
 import EditorCanvas from 'core/editor/canvas'
 import FixedTools from 'core/editor/tools'
 import DragLine from 'core/mixins/drag/drag_line.js'
+import PreviewDialog from 'core/preview/preview_dialog.js'
 
 window.EditorApp = new Vue() // event bus
+
 const CoreEditor = {
   name: 'CoreEditor',
   components: {
@@ -18,15 +21,19 @@ const CoreEditor = {
   },
   data() {
     return {
-      width: 320
+      width: 320,
+      previewDialogVisible: true
     }
+  },
+  methods:{
+    handlePreview () { this.previewDialogVisible = true }
   },
   render() {
     return (
       <el-container style={{height: '100vh'}}>
         <el-header style="background-color: #031529;">
           <Header>
-            <HeaderMenu slot="headr_menu"/>
+            <HeaderMenu slot="headr_menu" onPreview={this.handlePreview}/>
           </Header>
         </el-header>
         <el-container>
@@ -43,6 +50,7 @@ const CoreEditor = {
           {/*  右侧组件  */}
           <EditorRightPanel width={this.width}/>
         </el-container>
+        <PreviewDialog visible={this.previewDialogVisible} {...{on: {'update:visible': val => {this.previewDialogVisible = val}}}}/>
       </el-container>
     )
   }

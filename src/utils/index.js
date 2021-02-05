@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Element from 'core/models/element.js'
 
 const DESIGN_DRAFT_WIDTH = 375
+const disabledPluginsForEditMode = []
 
 export function getVM (pluginName) {
   const Ctor = Vue.component(pluginName)
@@ -53,5 +54,36 @@ export function elementClone(element, zindex) {
       left: element.commonStyle.left + 20
     }
   })
+}
+
+export function getProps ({ mode = 'edit' } = {}, element) {
+  return {
+    ...element.pluginProps,
+    disabled: disabledPluginsForEditMode.includes(element.name) && mode === 'edit'
+  }
+}
+
+export function getAttrs (element) {
+  const attrs = {
+    'data-uuid': element.uuid
+  }
+
+  if (element.animations && element.animations.length > 0) {
+    const animation = element.animations[0]
+    attrs['data-swiper-animation'] = animation.type // "fadeIn"
+    attrs['data-duration'] = `${animation.duration}s` // ".5s"
+    attrs['data-delay'] = `${animation.delay}s` // "1s"
+  }
+  return attrs
+}
+
+export function getPreviewData({ position = 'static', isRem = false, mode = 'preview' } = {}, element) {
+  const style = getStyle({position, isRem}, element)
+  const data = {
+    style,
+    props: getProps({ mode }, element),
+    attrs: getAttrs(element)
+  }
+  return data
 }
 

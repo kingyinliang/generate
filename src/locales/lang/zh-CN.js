@@ -91,12 +91,12 @@ export default {
         duration: '动画时长',
         delay: '动画延时',
         iteration: '运行次数',
-        inifinite: '循环播放',
+        infinite: '循环播放',
         list: '选择动画',
         title: 'Animation {index}'
       },
       common: {
-        empty: 'Select an element first please!'
+        empty: '请选择一个元素'
       }
     },
     tip: {

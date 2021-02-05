@@ -1,6 +1,10 @@
 export default {
   name: 'k-picture',
-  props: {},
+  props: {
+    imgSrc: {
+      label: '图片',
+    }
+  },
   data: () => ({}),
   render(){
     return (

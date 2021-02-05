@@ -1,18 +1,30 @@
 import Vue from 'vue'
 
 import KPicture from './k-picture'
+import KButton from './k-button'
 
 export const pluginsList = [
   {
+    title: '按钮',
+    i18nTitle: {
+      'en-US': 'Button',
+      'zh-CN': '按钮'
+    },
+    icon: 'el-icon-thumb',
+    component: KButton,
+    visible: true,
+    name: KButton.name
+  },
+  {
     title: '图片',
     i18nTitle: {
-      'en-US': 'Picture',
-      'zh-CN': '图片'
+      'en-US': 'Button',
+      'zh-CN': '按钮'
     },
-    icon: 'el-icon-picture-outline',
-    component: KPicture,
+    icon: 'el-icon-thumb',
+    component: KButton,
     visible: true,
-    name: KPicture.name
+    name: KButton.name
   },
   {
     title: '图片',

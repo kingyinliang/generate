@@ -12,6 +12,7 @@
     "build:editor": "cross-env PAGE=EDITOR vue-cli-service build"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "ant-design-vue": "^1.7.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",

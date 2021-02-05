@@ -16,12 +16,12 @@ class HttpManager {
     return this._instance
   }
 
-  get(url, parmas ={}) {
-    return this._axios.get(url, parmas)
+  get(url, parmas ={}, config = {}) {
+    return this._axios.get(url, parmas, config)
   }
 
-  post(url, data ={}) {
-    return this._axios.post(url, data)
+  post(url, data ={}, config = {}) {
+    return this._axios.post(url, data, config)
   }
 
   interceptorsRequest(){}

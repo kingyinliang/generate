@@ -17,9 +17,10 @@ const defaultStyle = {
 class Element {
   constructor(ele) {
     this.name = ele.name
-    this.uuid = ele.uuid + new Date()
+    this.uuid = ele.uuid || + new Date()
     this.pluginProps = this.getPluginProps(ele)
     this.commonStyle = this.getCommonStyle(ele)
+    this.animations = ele.animations || []
   }
 
   getStyle({position = 'static', isRem = false} = {}) {

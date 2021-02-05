@@ -1,11 +1,13 @@
 import {mapActions} from 'vuex'
 import {getStyle} from '@/utils'
+import animationMixin from 'core/mixins/animation/index.js'
 
 const points = ['nw', 'ne', 'sw', 'se', 'w', 'e', 'n', 's']
 
 export default {
   name: 'Shape',
   props: ['active', 'element'],
+  mixins: [animationMixin],
   methods: {
     ...mapActions('editor', ['setEditingElement', 'setElementCommonStyle']),
     getPointStyle(point) {

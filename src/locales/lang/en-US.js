@@ -92,7 +92,7 @@ export default {
         duration: 'Duration',
         delay: 'Delay',
         iteration: 'Iteration',
-        inifinite: 'Inifinite',
+        infinite: 'Infinite',
         list: 'Select Animation',
         title: 'Animation {index}'
       },

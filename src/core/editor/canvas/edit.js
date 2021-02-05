@@ -1,6 +1,7 @@
 import {mapActions, mapState} from 'vuex'
 import Shape from './shape'
 import ContextMenu from './context_menu'
+import { getProps } from '@/utils'
 
 export default {
   name: 'edit',
@@ -53,7 +54,15 @@ export default {
                 element={element}
                 active={this.editingElement === element}
               >
-                {h(element.name)}
+                {h(element.name, {
+                  props: {
+                    ...getProps({}, element)
+                  },
+                  style: {
+                    width: '100%',
+                    height: '100%'
+                  }
+                })}
               </Shape>
             )
           })

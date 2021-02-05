@@ -3,7 +3,7 @@ export default {
   render() {
     return(
       <div>
-        <el-button type="primary" size="mini">
+        <el-button type="primary" size="mini" onClick={()=>{this.$emit('preview')}}>
           {this.$t('editor.header.preview')}
         </el-button>
         <el-button size="mini">
@@ -13,8 +13,6 @@ export default {
           {this.$t('editor.header.publish')}
         </el-button>
       </div>
-
-
     )
   }
 }
