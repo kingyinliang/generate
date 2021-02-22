@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= work.title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,maximum-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/vue.js"></script>
+    <script>window.__work = <%- JSON.stringify(work) %></script>
+    <script src="/engine-assets/engine.umd.js"></script>
+    <link rel="stylesheet" href="/engine-assets/engine.css">
+  </head>
+  <body>
+    <div id="app">
+      <Engine />
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {},
+    });
+  </script>
+  <script>
+    (function() {
+      const newRem = function() {
+        const html = document.documentElement;
+        html.style.fontSize = html.getBoundingClientRect().width / 10 + 'px';
+      };
+      window.addEventListener('resize', newRem, false);
+      newRem();
+    })();
+  </script>
+</html>
