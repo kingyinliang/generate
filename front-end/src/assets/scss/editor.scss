@@ -1,0 +1,237 @@
+// 左侧工具 插件按钮
+.pluginButton{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 12px 0;
+  background: #f5f9fb;
+  cursor: pointer;
+  border: none;
+  em{
+    font-size: 24px;
+  }
+  span{
+    margin-left: 0!important;
+    font-size: 14px;
+    margin-top: 3px;
+    line-height: 24px;
+  }
+}
+.drag_plugin_button{
+  height: 75px;
+  width: 110px;
+  position: fixed !important;
+  z-index: 100;
+  cursor: grabbing;
+  user-select: none;
+  opacity: 0.6;
+}
+// canvas
+#canvas_main{
+  position: relative;
+  min-width: 400px;
+  padding: 0;
+  .canvas_group{
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 55px);
+    z-index: 2000;
+  }
+  .canvas_wrapper{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding-bottom: 78px;
+    overflow: scroll;
+    &_height{
+      width: 100%;
+      height: 48px;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      &_input{
+        color: #868484;
+        font-size: 14px;
+        margin-top: 12px;
+      }
+      &_drag{
+        margin: auto;
+        width: 375px;
+        height: 3px;
+      }
+    }
+    &_view{
+      width: 375px;
+      margin: auto;
+      margin-top: 50px;
+      background: #fff;
+    }
+  }
+}
+// 拖拽线
+.dragLine{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #efefef;
+  &:hover{
+    background: #1890ff;
+    .dragLine_button{
+      background: #1890ff;
+    }
+  }
+  &_button{
+    position: absolute;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 12px;
+    background: #fff;
+    &_icon{
+      width: 12px;
+      height: 1px;
+      background: #ccd5db;
+    }
+  }
+}
+.dragLine_ns{
+  cursor: ns-resize;
+  .dragLine_button{
+    top: 0;
+    left: calc(50% - 17px);
+  }
+}
+.dragLine_ew{
+  cursor: ew-resize;
+  .dragLine_button{
+    top: 50%;
+    right: -11px;
+    transform: rotate(90deg);
+  }
+}
+// shape
+.shape_active{
+  outline: 1px solid #70c0ff !important;
+}
+.shape_point{
+  margin-top: -3px;
+  margin-left: -3px;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #59c7f9;
+  width: 6px;
+  height: 6px;
+  z-index: 1;
+  border-radius: 50%;
+}
+.context_menu{
+  width: 100px;
+  position: absolute;
+  z-index: 2000;
+  .el-card__body{
+    padding: 0;
+  }
+  .el-menu-item{
+    line-height: 38px;
+    height: 38px;
+    color: #868484;
+  }
+}
+.animation_slider{
+  display: flex;
+  .el-form-item__content{
+    flex: 1;
+  }
+  .el-slider__input{
+    width: 90px;
+    margin-top: 0;
+  }
+  .el-slider__runway.show-input{
+    margin: 11px 110px 11px 0px;
+  }
+}
+.animated{
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animation_item_card{
+  cursor: pointer;
+  font-size: 14px;
+  color: #393e46;
+  line-height: 60px;
+  text-align: center;
+  background: #f5f8fb;
+  margin-bottom: 10px;
+}
+.k_dialog{
+  &__wrap{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+    z-index: 2001;
+    &__main{
+      position: relative;
+      background: none;
+      width: 435px;
+      margin: 8vh auto 50px;
+    }
+    &__close{
+      position: absolute;
+      right: -20px;
+      top: -10px;
+      cursor: pointer;
+      font-size: 32px;
+      color: white;
+    }
+  }
+  &__bg{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+}
+.iphone{
+  &__top{
+    position: absolute;
+    top: 0;
+    height: 47px;
+    left: 30px;
+    width: 375px;
+    border-radius: 30px 30px 0 0;
+    background: white;
+  }
+  &__main{
+    position: absolute;
+    z-index: 2002;
+    top: 47px;
+    left: 30px;
+    width: 375px;
+    height: 667px;
+    background: white;
+    border-radius: 0px 0px 20px 20px;
+  }
+  &__bg{
+    z-index: 2003;
+    position: absolute;
+    width: 435px;
+    height: 737px;
+  }
+}
+.work_container{
+  height: 100%;
+}
