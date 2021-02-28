@@ -3,6 +3,7 @@ CREATE TABLE `works` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext,
   `cover_image_url` longtext,
+  `dialog` longtext,
   `pages` longtext,
   `is_publish` tinyint(1) DEFAULT NULL,
   `is_template` tinyint(1) DEFAULT NULL,

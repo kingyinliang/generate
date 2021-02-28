@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node bin/www",
+    "start": "pm2 start --name generate-h5-service ./bin/www --watch",
+    "restart": "pm2 restart generate-h5-service",
+    "stop": "pm2 stop generate-h5-service",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"

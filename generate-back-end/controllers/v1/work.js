@@ -6,6 +6,7 @@ module.exports = {
             let work = await db.query(`select * from works where id=${ctx.query.id}`)
             if (work.length) {
                 work[0].pages = JSON.parse(work[0].pages)
+                work[0].dialog = JSON.parse(work[0].dialog)
                 ctx.success({
                     work: work[0]
                 })
@@ -26,8 +27,8 @@ module.exports = {
     },
     insert: async ctx => {
         const params = ctx.request.body
-        const sql = `insert into works(title,is_template,description,pages) 
-        values('${params.title}',${params.is_template},'${params.description}','${JSON.stringify(params.pages)}')`
+        const sql = `insert into works(title,is_template,description,dialog,pages)
+        values('${params.title}',${params.is_template},'${params.description}','${JSON.stringify(params.dialog)}','${JSON.stringify(params.pages)}')`
         let works = await db.query(sql)
         ctx.success({
             id: works.insertId
@@ -36,8 +37,8 @@ module.exports = {
     update: async ctx => {
         const params = ctx.request.body
         console.log(params);
-        const sql = `update works set 
-        title='${params.title}',is_template=${params.is_template},description='${params.description}',pages='${JSON.stringify(params.pages)}'
+        const sql = `update works set
+        title='${params.title}',is_template=${params.is_template},description='${params.description}',dialog='${JSON.stringify(params.dialog)}',pages='${JSON.stringify(params.pages)}'
         where id=${params.id}`
         let works = await db.query(sql)
         ctx.success({
@@ -49,6 +50,7 @@ module.exports = {
             let work = await db.query(`select * from works where id=${ctx.query.id}`)
             if (work.length) {
                 work[0].pages = JSON.parse(work[0].pages)
+                work[0].dialog = JSON.parse(work[0].dialog)
                 await ctx.render('index',{
                     work: work[0]
                 })
