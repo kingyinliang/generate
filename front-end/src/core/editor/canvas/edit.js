@@ -52,6 +52,14 @@ export default {
                 },
               })
             }
+            const props = getProps({}, element)
+            const data = {
+              props,
+              style: {
+                width: '100%',
+                height: '100%'
+              }
+            }
             return (
               <Shape
                 nativeOnContextmenu={e => {
@@ -61,15 +69,7 @@ export default {
                 element={element}
                 active={this.editingElement === element}
               >
-                {h(element.name, {
-                  props: {
-                    ...getProps({}, element)
-                  },
-                  style: {
-                    width: '100%',
-                    height: '100%'
-                  }
-                })}
+                {h(element.name, data)}
               </Shape>
             )
           })

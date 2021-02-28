@@ -11,7 +11,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('editor', ['work','editingPage']),
+    ...mapState('editor', ['work','editingPage', 'scaleRate']),
     ...mapState('editor', {
       elements: state => state.editingPage.elements,
     })
@@ -19,7 +19,7 @@ export default {
   methods: {
     ...mapActions('editor', [
       'updateWork',
-      'updateEditingPage',
+      'updateEditingPageHeight',
       'setEditingElement'
     ]),
     radioChange(e){
@@ -39,23 +39,25 @@ export default {
             </el-radio-group>
           </div>
           <div class='canvas_wrapper'>
-            <div class='canvas_wrapper_view' style={{ height: `${this.editingPage.height}px` }}>
-              { this.isPreviewMode ? <EditCanvas/> : <PreviewCanvas elements={this.elements} height={this.editingPage.height}/> }
-            </div>
-            <div class='canvas_wrapper_height' style={{top: `${this.editingPage.height*1 + 50}px`}}>
-              <div class="canvas_wrapper_height_drag">
-                <DragLine type='ns' onlineMove={offset => { this.updateEditingPage({ height: this.editingPage.height + offset}) }}/>
+            <div style={{ transform: `scale(${this.scaleRate})`, 'transform-origin': 'center top', 'padding-top': '50px' }}>
+              <div class='canvas_wrapper_view' style={{ height: `${this.editingPage.height}px` }}>
+                { this.isPreviewMode ? <EditCanvas/> : <PreviewCanvas elements={this.elements} height={this.editingPage.height}/> }
               </div>
-              <div class="canvas_wrapper_height_input">
-                <span>375 x</span>
-                <el-input
-                  type='number'
-                  vModel={this.editingPage.height}
-                  size="mini"
-                  style='width:80px;margin:0 4px;'
-                  onChange={height => { this.updateEditingPage({ height }) }}
-                />
-                <span>px</span>
+              <div class='canvas_wrapper_height' style={{top: `${this.editingPage.height*1 + 50}px`}}>
+                <div class="canvas_wrapper_height_drag">
+                  <DragLine type='ns' onlineMove={offset => { this.updateEditingPageHeight({ height: this.editingPage.height + offset}) }}/>
+                </div>
+                <div class="canvas_wrapper_height_input">
+                  <span>375 x</span>
+                  <el-input
+                    type='number'
+                    vModel={this.editingPage.height}
+                    size="mini"
+                    style='width:80px;margin:0 4px;'
+                    onChange={height => { this.updateEditingPageHeight({ height }) }}
+                  />
+                  <span>px</span>
+                </div>
               </div>
             </div>
           </div>

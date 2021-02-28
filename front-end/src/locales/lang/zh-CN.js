@@ -33,7 +33,7 @@ export default {
       components: '组件列表',
       pages: '页面管理',
       templates: '模板',
-      tree: '组件树'
+      dialog: '弹窗'
     },
     pageManager: {
       title: '第{index}页面',

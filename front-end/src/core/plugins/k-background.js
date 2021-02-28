@@ -1,22 +1,10 @@
+import PropTypes from './plugin-props'
+
 export default {
   name: 'k-background',
   props: {
-    imgSrc: {
-      type: String,
-      default: '',
-      editor: {
-        type: 'k-upload',
-        label: '图片',
-      },
-    },
-    backgroundColor:{
-      type: String,
-      default: '#ffffff',
-      editor: {
-        type: 'el-color-picker',
-        label: '背景色',
-      }
-    },
+    imgSrc: PropTypes.upload({label: '图片'}),
+    backgroundColor: PropTypes.color({label: '背景色'}),
   },
   render(){
     let style = {

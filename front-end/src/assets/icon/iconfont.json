@@ -1,0 +1,72 @@
+{
+  "id": "2391490",
+  "name": "k",
+  "font_family": "iconfont",
+  "css_prefix_text": "K",
+  "description": "generate",
+  "glyphs": [
+    {
+      "icon_id": "17905110",
+      "name": "关 闭",
+      "font_class": "guanbi",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    },
+    {
+      "icon_id": "424131",
+      "name": "撤销",
+      "font_class": "chexiao",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    },
+    {
+      "icon_id": "424182",
+      "name": "重做",
+      "font_class": "zhongzuo",
+      "unicode": "e7ef",
+      "unicode_decimal": 59375
+    },
+    {
+      "icon_id": "6774730",
+      "name": "按钮",
+      "font_class": "button",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "10601431",
+      "name": "输入框",
+      "font_class": "shurukuang",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11512355",
+      "name": "div",
+      "font_class": "div",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "12478815",
+      "name": "放大",
+      "font_class": "fangda",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "18671827",
+      "name": "缩小",
+      "font_class": "suoxiao",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "19940615",
+      "name": "图 片",
+      "font_class": "tupian",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

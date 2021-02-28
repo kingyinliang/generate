@@ -8,10 +8,12 @@ import '@/assets/scss/editor.scss'
 import '@/assets/scss/plugins.scss'
 import 'animate.css'
 import 'core/plugins/editor/index.js'
+import '@/assets/icon/iconfont.css'
 
 import {getWork, updateWorks} from '@/utils/api.js'
 import Element from 'core/models/element'
 import Page from 'core/models/page'
+import Dialog from 'core/models/dialog'
 
 import EditorLeftPanel from 'core/editor/leftPanel'
 import EditorRightPanel from 'core/editor/rightPanel'
@@ -48,6 +50,10 @@ const CoreEditor = {
         work.pages = work.pages.map(page => {
           page.elements = page.elements.map(element => new Element(element))
           return new Page(page)
+        })
+        work.dialog = work.dialog.map(dialog => {
+          dialog.elements = dialog.elements.map(element => new Element(element))
+          return new Dialog(dialog)
         })
         this.updateWork(work)
         this.setEditingPage()

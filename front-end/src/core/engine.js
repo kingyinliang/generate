@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import PreviewCanvas from 'core/preview'
+import DialogCanvas from 'core/preview/dialog_canvas.js'
 import { pluginsList } from 'core/plugins'
 
-import elementUi from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/scss/index.scss';
 import '@/assets/scss/editor.scss'
+import '@/assets/scss/plugins.scss'
+import '@/assets/icon/iconfont.css'
 import 'animate.css'
-
-Vue.use(elementUi)
 
 const Engine = {
   name: 'Engine',
@@ -17,6 +16,7 @@ const Engine = {
     return (
       <div class='work_container'>
         <PreviewCanvas elements={work.pages[0].elements} height={work.pages[0].height}/>
+        <DialogCanvas dialogs={work.dialog}/>
       </div>
     )
   }

@@ -30,6 +30,42 @@
   user-select: none;
   opacity: 0.6;
 }
+.left_tab{
+  height: 100%;
+  .el-tabs__content{
+    height: calc(100vh - 135px);
+  }
+  .el-tab-pane{
+    height: 100%;
+  }
+  .page_manager{
+    height: 100%;
+    padding-bottom: 30px;
+    overflow: scroll;
+    .page_card_title{
+      width: 100%;
+      display: flex;
+      .el-button{
+        color: #868484;
+      }
+      &_text{
+        flex: 1;
+      }
+    }
+    .activeTitle{
+      color: #409EFF;
+      .el-button{
+        color: #409EFF;
+      }
+    }
+  }
+  .addPage{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -48.5px;
+  }
+}
 // canvas
 #canvas_main{
   position: relative;
@@ -67,7 +103,6 @@
     &_view{
       width: 375px;
       margin: auto;
-      margin-top: 50px;
       background: #fff;
     }
   }
@@ -130,6 +165,7 @@
   z-index: 1;
   border-radius: 50%;
 }
+// context_menu
 .context_menu{
   width: 100px;
   position: absolute;
@@ -143,6 +179,26 @@
     color: #868484;
   }
 }
+// tools
+.tools_button_group{
+  width: 40px;
+  text-align: center;
+  .el-button{
+    width: 100%;
+    font-size: 18px;
+    color: black;
+  }
+  .el-button.is-disabled{
+    color: #868484;
+  }
+}
+// right
+.right_prop_form{
+  .el-input{
+    width: auto;
+  }
+}
+// animation
 .animation_slider{
   display: flex;
   .el-form-item__content{
@@ -169,6 +225,7 @@
   background: #f5f8fb;
   margin-bottom: 10px;
 }
+// preview
 .k_dialog{
   &__wrap{
     position: fixed;
@@ -217,16 +274,17 @@
   }
   &__main{
     position: absolute;
-    z-index: 2002;
+    z-index: 2003;
     top: 47px;
     left: 30px;
     width: 375px;
     height: 667px;
     background: white;
     border-radius: 0px 0px 20px 20px;
+    overflow: scroll;
   }
   &__bg{
-    z-index: 2003;
+    z-index: 2002;
     position: absolute;
     width: 435px;
     height: 737px;
@@ -234,4 +292,15 @@
 }
 .work_container{
   height: 100%;
+}
+.page_view{
+  position: relative;
+  width: 187.5px;
+  margin: auto;
+  &_main{
+    position: absolute;
+    width: 375px;
+    transform: scale(0.5);
+    left: -93.75px;
+  }
 }

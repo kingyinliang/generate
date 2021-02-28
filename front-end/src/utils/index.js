@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import { cloneDeep } from 'lodash'
 import Element from 'core/models/element.js'
+import Http from './axios'
 
 const DESIGN_DRAFT_WIDTH = 375
-const disabledPluginsForEditMode = []
+const disabledPluginsForEditMode = ['k-input', 'k-button']
 
 export function getVM (pluginName) {
   const Ctor = Vue.component(pluginName)
@@ -61,9 +63,15 @@ export function elementClone(element, zindex) {
 }
 
 export function getProps ({ mode = 'edit' } = {}, element) {
-  return {
-    ...element.pluginProps,
-    disabled: disabledPluginsForEditMode.includes(element.name) && mode === 'edit'
+  if (mode === 'edit') {
+    return {
+      ...element.pluginProps,
+      disabled: disabledPluginsForEditMode.includes(element.name) && mode === 'edit'
+    }
+  } else {
+    return {
+      ...element.pluginProps,
+    }
   }
 }
 
@@ -91,3 +99,49 @@ export function getPreviewData({ position = 'static', isRem = false, mode = 'pre
   return data
 }
 
+export function postAxios({interfaceName='', formData} = {}) {
+  return Http.post(interfaceName, formData)
+}
+
+export class UndoRedoHistory {
+  store;
+  history = [];
+  currentIndex = -1;
+
+  get canUndo () {
+    return this.currentIndex > 0
+  }
+
+  get canRedo () {
+    return this.history.length > this.currentIndex + 1
+  }
+
+  init(store){
+    this.store = store
+  }
+
+  addState(state) {
+    if (this.currentIndex + 1 < this.history.length) {
+      this.history.splice(this.currentIndex + 1)
+    }
+    this.history.push(state)
+    this.currentIndex++
+  }
+
+  undo() {
+    if (!this.canUndo) return
+    const prevState = this.history[this.currentIndex - 1]
+    this.store.replaceState(cloneDeep(prevState))
+    this.currentIndex--
+  }
+
+  redo() {
+    if (!this.canRedo) return
+    const nextState = this.history[this.currentIndex + 1]
+    this.store.replaceState(cloneDeep(nextState))
+    this.currentIndex++
+  }
+
+}
+
+export const undoRedoHistory = new UndoRedoHistory()

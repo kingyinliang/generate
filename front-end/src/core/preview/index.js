@@ -15,7 +15,6 @@ export default {
       height = parsePx(this.height, isRem);
     }
     const pageWrapperStyle = {height: height, position: 'relative'}
-    console.log(this.height);
     return (
       <div style={pageWrapperStyle}>
         {

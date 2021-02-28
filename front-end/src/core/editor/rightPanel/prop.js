@@ -1,4 +1,3 @@
-import Vue from "vue";
 import {mapState} from "vuex";
 import {getVM} from '@/utils'
 
@@ -23,14 +22,14 @@ export default {
     const vm = getVM(this.editingElement.name)
     const props = vm.$options.props
     return (
-      <el-form size="mini" inline={false}>
+      <el-form class="right_prop_form" size="mini" inline={false}>
         {
           Object.entries(props).map(([key, value]) => {
             const editor = value.editor
             const data = {
               props: {
                 ...editor.props,
-                [editor.type === 'el-switch' ? 'checked' : 'value']: this.editingElement.pluginProps[key]
+                value: this.editingElement.pluginProps[key]
               },
               on: {
                 input: val => {

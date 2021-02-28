@@ -35,7 +35,7 @@ export default {
         onMousedown={props.mousedownFn}
         disabled={props.disabled}
       >
-        <em class={props.pluginIcon}/>
+        <em class={['iconfont', props.pluginIcon]}/>
         <span>{props.title}</span>
       </button>
     )

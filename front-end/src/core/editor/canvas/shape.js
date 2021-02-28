@@ -9,7 +9,7 @@ export default {
   props: ['active', 'element'],
   mixins: [animationMixin],
   methods: {
-    ...mapActions('editor', ['setEditingElement', 'setElementCommonStyle']),
+    ...mapActions('editor', ['setEditingElement', 'setElementCommonStyle', 'recordRect']),
     getPointStyle(point) {
       const height = this.element.commonStyle.height
       const width = this.element.commonStyle.width
@@ -73,6 +73,7 @@ export default {
       }
 
       let up = () => {
+        this.recordRect()
         document.removeEventListener('mousemove', move)
         document.removeEventListener('mouseup', up)
       }
@@ -102,6 +103,7 @@ export default {
       }
 
       let up = () => {
+        this.recordRect()
         document.removeEventListener('mousemove', move, true)
         document.removeEventListener('mouseup', up, true)
       }

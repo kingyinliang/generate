@@ -17,6 +17,9 @@ export const actions = {
   deleteElement({ commit }) {
     commit('deleteElement')
   },
+  recordRect ({ commit }, payload = {}) {
+    commit('recordRect', payload)
+  },
 }
 
 export const mutations = {
@@ -32,7 +35,6 @@ export const mutations = {
   addElement(state, payload){
     const vm = getVM(payload.name)
     vm.$options.dragStyle = payload.dragStyle
-    console.log(vm.$options);
     vm.$options.zindex = state.editingPage.elements.length
     const element = new Element(vm.$options)
     state.editingPage.elements.push(element)
@@ -47,5 +49,7 @@ export const mutations = {
       state.editingPage.elements.splice(index, 1)
     }
     state.editingElement = null
+  },
+  recordRect (state, { type, value }) {
   }
 }

@@ -33,7 +33,7 @@ export default {
       components: 'Components',
       pages: 'Pages',
       templates: 'Templates',
-      tree: 'Tree'
+      dialog: 'Dialog'
     },
     pageManager: {
       title: 'Page {index}',
