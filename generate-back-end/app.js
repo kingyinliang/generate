@@ -6,6 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa-cors')
+const template = require("koa-html-template")
 
 const { routerResponse, initController, initRouter } = require('./initRouterControllers');
 
@@ -24,6 +25,8 @@ app.use(cors())
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(__dirname + '/public/build-editor'))
+app.use(template('/public'))
 
 app.use(views(__dirname + '/views', {
   extension: 'ejs'

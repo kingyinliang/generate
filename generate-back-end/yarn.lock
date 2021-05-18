@@ -1093,6 +1093,13 @@ koa-cors@^0.0.16:
   resolved "https://registry.yarnpkg.com/koa-cors/-/koa-cors-0.0.16.tgz#98107993a7909e34c042986c5ec6156d77f3432e"
   integrity sha1-mBB5k6eQnjTAQphsXsYVbXfzQy4=
 
+koa-html-template@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/koa-html-template/-/koa-html-template-1.0.0.tgz#c45dc85526024587dcde86cc747b32b504dfb55f"
+  integrity sha512-jkjuPG8jMtby9z33D1jC+Y19OUWMvbNgbdUMLTRsuNlCIWKj+gHzWEHSkwg6DynJ9OmMhDgQPWzrXEAr4SUFJA==
+  dependencies:
+    root-path-plugin "^1.0.0"
+
 koa-is-json@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
@@ -1664,6 +1671,11 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
+
+root-path-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/root-path-plugin/-/root-path-plugin-1.0.0.tgz#a7c2121e3cc458ea1877e18abd3152109d435aea"
+  integrity sha512-MioznoKWkRWQvjD0aGoulY1tMeCs/8U+uMlsREbuX1S3ZDXbkzOoXAr6BB+HKAJl80Lx/RdJWmiS+PD1YiEtiA==
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

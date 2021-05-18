@@ -63,5 +63,8 @@ module.exports = {
                 data: '没有id'
             })
         }
+    },
+    editor: async ctx => {
+      await ctx.template("build-editor/index.html")
     }
 }
