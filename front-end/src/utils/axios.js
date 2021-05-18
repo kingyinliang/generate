@@ -5,7 +5,7 @@ class HttpManager {
   constructor() {
     console.log('axios初始化');
     this._axios = axios.create({
-      baseURL: 'http://localhost:3000/v1',
+      baseURL: 'http://10.22.7.52:3000/v1',
       timeout: 30000,
     })
     this.interceptorsRequest()

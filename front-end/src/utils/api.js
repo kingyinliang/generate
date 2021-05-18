@@ -22,3 +22,4 @@ export function getWorks() {
 export function updateWorks(work) {
   return Http.post('/work/update', work)
 }
+

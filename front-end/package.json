@@ -19,6 +19,7 @@
     "cross-env": "^7.0.3",
     "element-ui": "^2.14.1",
     "hotkeys-js": "^3.8.2",
+    "k-generate-components": "^0.1.0",
     "lodash": "^4.17.21",
     "strapi-sdk-javascript": "^0.3.3",
     "vue": "^2.6.11",

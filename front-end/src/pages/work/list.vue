@@ -11,10 +11,11 @@
       </el-col>
       <el-col v-for="(item, index) in worklist" :key="index" :span="6" style="margin-bottom: 10px">
         <el-card>
-          <div slot="header" class="flex-center" style="height: 330px;padding: 0;background: white;">
+          <div slot="header" class="flex-center" style="height: 330px;padding: 0;background: white;overflow: hidden;">
+            <pageView :page="item.pages[0]"/>
           </div>
           <div class="flex-center">
-            <div class="cardText">
+            <div class="cardText" @click="goEditor(item)">
               <em class="el-icon-edit" />
             </div>
             <div class="cardText">
@@ -32,10 +33,15 @@
 
 <script type="text/jsx">
   import { createWork, getWork } from '@/utils/api'
+  import elementUi from 'element-ui'
+  import pageView from "core/editor/leftPanel/pageView"
+  import LoadPluginsMixin from 'core/plugins'
 
   export default {
     name: "list",
+    mixins: [LoadPluginsMixin],
     components:{
+      pageView
     },
     data() {
       return {
@@ -43,11 +49,15 @@
       }
     },
     mounted() {
+      console.log(elementUi.install);
       getWork().then(({ data }) => {
         this.worklist = data.data.works
       })
     },
     methods: {
+      goEditor(work){
+        this.$router.push({ name: 'editor',params: {workId: work.id} });
+      },
       addWork() {
         createWork()
       }

@@ -50,6 +50,6 @@ export const mutations = {
     }
     state.editingElement = null
   },
-  recordRect (state, { type, value }) {
+  recordRect () {
   }
 }

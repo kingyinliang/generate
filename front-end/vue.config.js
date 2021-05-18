@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const engineOutputDir = path.join(__dirname, '../generate-back-end/public/engine-assets');//引擎
-const mainAppOutputDir = path.join(__dirname, '../back-end/api/build-editor');
+const mainAppOutputDir = path.join(__dirname, '../generate-back-end/public/build-editor');
 const coreEditorOutputDir = path.join(__dirname, '../front-end/src/components/core/dist');
 
 let page;

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import PreviewCanvas from 'core/preview'
 import DialogCanvas from 'core/preview/dialog_canvas.js'
 import { pluginsList } from 'core/plugins'
+import KComponents from 'k-generate-components'
 
 import '@/assets/scss/index.scss';
 import '@/assets/scss/editor.scss'
@@ -21,6 +22,8 @@ const Engine = {
     )
   }
 }
+
+Vue.use(KComponents)
 
 const install = function (Vue) {
   Vue.component(Engine.name, Engine)

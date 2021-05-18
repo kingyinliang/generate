@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {mapActions, mapState} from "vuex";
+import KComponents from 'k-generate-components'
 
 import Header from '@/components/header/index'
 import HeaderMenu from '@/components/header/headerMenu'
@@ -23,6 +24,8 @@ import DragLine from 'core/mixins/drag/drag_line.js'
 import PreviewDialog from 'core/preview/preview_dialog.js'
 
 window.EditorApp = new Vue() // event bus
+
+Vue.use(KComponents)
 
 const CoreEditor = {
   name: 'CoreEditor',

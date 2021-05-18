@@ -17,47 +17,47 @@
             key: '1',
             routerName: 'work-list'
           },
-          {
-            label: '数据中心',
-            i18nLabel: 'sidebar.dataCenter',
-            value: 'dataCenter',
-            antIcon: 'el-icon-s-data',
-            key: '2',
-            children: [
-              {
-                label: '基础数据',
-                i18nLabel: 'sidebar.basicData',
-                value: 'basicData',
-                antIcon: 'el-icon-s-grid',
-                key: '2-1',
-                routerName: 'form-stat'
-              }
-            ]
-          },
-          {
-            label: '模板中心',
-            i18nLabel: 'sidebar.templateCenter',
-            value: 'templateCenter',
-            antIcon: 'el-icon-document',
-            key: '3',
-            children: [
-              {
-                label: '模板列表',
-                i18nLabel: 'sidebar.freeTemplates',
-                value: 'freeTemplates',
-                antIcon: 'el-icon-s-grid',
-                key: '3-1',
-                routerName: 'work-manager-templates'
-              }
-            ]
-          },
-          {
-            label: '商家中心',
-            i18nLabel: 'sidebar.accountCenter',
-            value: 'freeTemplate',
-            antIcon: 'el-icon-s-custom',
-            key: '4'
-          }
+          // {
+          //   label: '数据中心',
+          //   i18nLabel: 'sidebar.dataCenter',
+          //   value: 'dataCenter',
+          //   antIcon: 'el-icon-s-data',
+          //   key: '2',
+          //   children: [
+          //     {
+          //       label: '基础数据',
+          //       i18nLabel: 'sidebar.basicData',
+          //       value: 'basicData',
+          //       antIcon: 'el-icon-s-grid',
+          //       key: '2-1',
+          //       routerName: 'form-stat'
+          //     }
+          //   ]
+          // },
+          // {
+          //   label: '模板中心',
+          //   i18nLabel: 'sidebar.templateCenter',
+          //   value: 'templateCenter',
+          //   antIcon: 'el-icon-document',
+          //   key: '3',
+          //   children: [
+          //     {
+          //       label: '模板列表',
+          //       i18nLabel: 'sidebar.freeTemplates',
+          //       value: 'freeTemplates',
+          //       antIcon: 'el-icon-s-grid',
+          //       key: '3-1',
+          //       routerName: 'work-manager-templates'
+          //     }
+          //   ]
+          // },
+          // {
+          //   label: '商家中心',
+          //   i18nLabel: 'sidebar.accountCenter',
+          //   value: 'freeTemplate',
+          //   antIcon: 'el-icon-s-custom',
+          //   key: '4'
+          // }
         ]
       }
     },

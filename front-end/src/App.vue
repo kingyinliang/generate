@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+<!--    <el-button>111</el-button>-->
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+  },
+  mounted() {
+  }
 }
 </script>
 

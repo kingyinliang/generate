@@ -2,9 +2,7 @@ import Vue from 'vue'
 
 import KBackground from './k-background'
 import KPicture from './k-picture'
-import KButton from './k-button'
 import KInput from './k-input'
-import KDiv from './k-div'
 import KVideo from './k-video'
 
 export const pluginsList = [
@@ -18,17 +16,6 @@ export const pluginsList = [
     component: KBackground,
     visible: false,
     name: KBackground.name
-  },
-  {
-    title: '按钮',
-    i18nTitle: {
-      'en-US': 'Button',
-      'zh-CN': '按钮'
-    },
-    icon: 'Kbutton',
-    component: KButton,
-    visible: true,
-    name: KButton.name
   },
   {
     title: '图片',
@@ -51,17 +38,6 @@ export const pluginsList = [
     component: KInput,
     visible: true,
     name: KInput.name
-  },
-  {
-    title: '容器',
-    i18nTitle: {
-      'en-US': 'div',
-      'zh-CN': '容器'
-    },
-    icon: 'Kdiv',
-    component: KDiv,
-    visible: true,
-    name: KDiv.name
   },
   {
     title: '视频',
