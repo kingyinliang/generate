@@ -5,6 +5,7 @@ CREATE TABLE `works` (
   `cover_image_url` longtext,
   `dialog` longtext,
   `pages` longtext,
+  `datasources` longtext,
   `is_publish` tinyint(1) DEFAULT NULL,
   `is_template` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
